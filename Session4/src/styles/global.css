@@ -1,0 +1,11 @@
+header,
+main,
+aside,
+footer,
+section,
+article {
+  border: 1px solid black;
+  padding: 2px;
+  min-height:20px;
+  min-width:20px;
+}

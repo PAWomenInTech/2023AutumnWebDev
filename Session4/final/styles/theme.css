@@ -1,0 +1,13 @@
+:root{
+    --text: white;
+    --accent-text: black;
+    --background: blue;
+    --logo-button:  rgba(200, 10, 10, 0.7);
+    --button: gray;
+    --background-fade: rgba(0,0,0,0.3);
+    --foreground-fade: rgba(255,255,255,0.3);
+   
+    --hero-splash-image: url("../images/splash-background.jpg");
+    
+    --signpost-highlight-fade: rgba(255,255,255,0.5);
+}
