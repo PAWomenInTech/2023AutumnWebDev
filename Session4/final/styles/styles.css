@@ -59,12 +59,10 @@ body>footer {
   background-color: var(--background-fade);
   padding: var(--large-padding);
 }
-
-/* 
+ 
 body > main:has(section.full) {
   background-color: var(--foreground-fade);
 }
-*/
 
 body>footer {
   justify-content: center;
