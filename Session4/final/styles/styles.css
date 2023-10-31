@@ -37,18 +37,6 @@ body {
   grid-template-rows: var(--header-height) auto var(--header-height);
 }
 
-body > header {
-  grid-row: 1;
-}
-
-body > main {
-  grid-row: 2;
-}
-
-body > footer {
-  grid-row: 3;
-}
-
 body > main {
   display: flex;
   flex-direction: column;
@@ -69,9 +57,11 @@ body > footer {
   padding: var(--large-padding);
 }
 
-body > main {
+/* 
+body > main:has(section.full) {
   background-color: var(--foreground-fade);
 }
+*/
 
 body > footer {
   justify-content: center;
@@ -107,7 +97,7 @@ body > header > a {
 section.hero::before {
   content: "";
   z-index: -1;
-  position: fixed;
+  position:absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -118,6 +108,9 @@ section.hero::before {
   background-size: cover;
 }
 
+section.hero.full::before {
+  position: fixed;
+}
 
 
 section.hero {
@@ -128,6 +121,7 @@ section.hero {
   justify-content: center;
   align-items: flex-end;
   color: var(--accent-text);
+  position:relative;
 }
 
 section.hero > * {

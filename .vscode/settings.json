@@ -1,3 +1,4 @@
 {
-    "livePreview.serverRoot": "./src"
+    "livePreview.serverRoot": "/Session4/src",
+    "liveServer.settings.root": "/Session4/src"
 }

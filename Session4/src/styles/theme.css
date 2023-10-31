@@ -1,0 +1,100 @@
+header,
+main,
+aside,
+footer,
+section,
+article {
+  border: 1px solid black;
+  padding: 2px;
+  margin: 2px;
+  min-height: 20px;
+  min-width: 20px;
+}
+
+:root {
+  --text: white;
+  --background: blue;
+  --logo-button: rgba(200, 10, 10, 0.7);
+  --background-fade: rgba(0, 0, 0, 0.3);
+
+  --min-width: 23rem;
+  --header-height: 3rem;
+  --large-padding: 1rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-width: var(--min-width);
+  display: grid;
+  grid-template-rows: var(--header-height) auto var(--header-height);
+
+  color: var(--text);
+  background-color: var(--background);
+
+}
+
+body>main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  min-width: var(--min-width);
+  max-width: 70%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+body>header,
+body>footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  padding: var(--large-padding);
+}
+
+body>footer {
+  justify-content: center;
+}
+
+body>header nav {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--large-padding);
+  align-items: center;
+}
+
+a,
+a:hover,
+a:visited {
+  color: var(--text);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body > header > a {
+  background-color: var(--logo-button);
+  height: calc(var(--header-height) / 2);
+  padding: var(--large-padding);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body>header,
+body>footer {
+  background-color: var(--background-fade);
+}
