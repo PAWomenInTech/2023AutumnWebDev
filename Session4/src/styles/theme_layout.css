@@ -164,7 +164,7 @@ section.signposts {
   min-height: var(--signpost-height);
 }
 
-section.signposts>main{
+section.signposts>main {
   display: grid;
   grid-gap: var(--large-padding);
   grid-template-columns: 1fr 1fr 2fr;
@@ -208,7 +208,7 @@ section.signposts article {
   position: relative;
 }
 
-section.signposts article > a {
+section.signposts article>a {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -216,6 +216,6 @@ section.signposts article > a {
   right: 0;
 }
 
-section.signposts article > a:hover {
+section.signposts article>a:hover {
   background-color: var(--signpost-highlight-fade);
 }

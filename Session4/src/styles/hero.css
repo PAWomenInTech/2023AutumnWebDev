@@ -18,7 +18,7 @@ article {
   --logo-button: rgba(200, 10, 10, 0.7);
   --background-fade: rgba(0, 0, 0, 0.3);
 
-  --foreground-fade: rgba(255,255,255,0.3);
+  --foreground-fade: rgba(255, 255, 255, 0.3);
   --accent-text: black;
   --button: gray;
 
@@ -104,7 +104,7 @@ a:hover {
   text-decoration: underline;
 }
 
-body > header > a {
+body>header>a {
   background-color: var(--logo-button);
   height: calc(var(--header-height) / 2);
   padding: var(--large-padding);
@@ -128,15 +128,14 @@ section.hero {
   justify-content: center;
   align-items: flex-end;
   color: var(--accent-text);
-  position:relative;
+  position: relative;
 }
 
-section.hero > * {
+section.hero>* {
   background-color: var(--foreground-fade);
   padding: var(--large-padding);
-  min-width: calc(
-    var(--min-width) - 4 * var(--large-padding)
-  ); /* 30rem - 2x( 1rem main padding + 1rem section padding )*/
+  min-width: calc(var(--min-width) - 4 * var(--large-padding));
+  /* 30rem - 2x( 1rem main padding + 1rem section padding )*/
 }
 
 section.hero footer {
@@ -154,7 +153,7 @@ section.hero footer a {
 section.hero::before {
   content: "";
   z-index: -1;
-  position:absolute;
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;

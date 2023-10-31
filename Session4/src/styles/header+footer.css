@@ -68,14 +68,15 @@ body>footer {
   padding: var(--large-padding);
 }
 
-body > footer {
+body>footer {
   justify-content: center;
 }
 
-body > header nav {
+body>header nav {
   display: flex;
   justify-content: space-between;
   gap: var(--large-padding);
   align-items: center;
 }
+
 /* Header and Footer --END */

@@ -97,7 +97,7 @@ a:hover {
   text-decoration: underline;
 }
 
-body > header > a {
+body>header>a {
   background-color: var(--logo-button);
   height: calc(var(--header-height) / 2);
   padding: var(--large-padding);
