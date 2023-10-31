@@ -125,8 +125,10 @@ This session is a consolidation of the previous few weeks, with a push in into s
     ```css
     body {
       min-width: var(--min-width);
+      max-width: calc(var(--min-width) * 3);
+      margin: 0 auto;
       display: grid;
-      grid-template-rows: var(--header-height)     auto var(--header-height);
+      grid-template-rows: var(--header-height) auto var(--header-height);
     }
     ```
     > Note: [display: `grid`](https://www.w3schools.com/css/css_grid.asp).  `var(--header-height)` uses the variable value to set the top and bottom rows heights.  [auto] makes the middle (`<main>`) element take up the remainder of the vertical space.
@@ -472,7 +474,7 @@ section.signposts article main p {
     </a>
   </article>
   ```
-* Clicable CSS Signpost:
+* Clickable CSS Signpost:
   ```css
   :root {
     --signpost-highlight-fade: rgba(255,255,255,0.5);

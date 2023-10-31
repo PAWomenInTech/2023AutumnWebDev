@@ -21,6 +21,8 @@ body {
 
 body {
   min-width: var(--min-width);
+  max-width: calc(var(--min-width) * 3);
+  margin: 0 auto;
   display: grid;
   grid-template-rows: var(--header-height) auto var(--header-height);
 
