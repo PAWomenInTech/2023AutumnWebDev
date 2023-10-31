@@ -45,3 +45,15 @@ body>main {
   width: 100%;
   margin: 0 auto;
 }
+
+body>header {
+  grid-row: 1;
+}
+
+body>main {
+  grid-row: 2;
+}
+
+body>footer {
+  grid-row: 3;
+}

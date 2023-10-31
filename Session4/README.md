@@ -140,6 +140,20 @@ This session is a consolidation of the previous few weeks, with a push in into s
     }
     ```
     > Note: `margin: 0 auto;` is a common way to centrally place an element with a set `width`.
+  * Assign rows to top level elements:
+    ```css
+    body>header {
+      grid-row: 1;
+    }
+
+    body>main {
+      grid-row: 2;
+    }
+
+    body>footer {
+      grid-row: 3;
+    }
+    ```
   * [Final](./src/3.%20layout.html):![Wireframe Final](./assets/wireframe-layout.png)
 
 ## Setup Header and Footer
@@ -324,3 +338,170 @@ This session is a consolidation of the previous few weeks, with a push in into s
    > Note: This rull will apply if the `full` class is applied to the `hero` section, and will make to positioning of the background image relative to the viewport of the browser.
 * Comment out the wireframe CSS
 * [Final](./src/6.%20hero.html):![Wireframe Final](./assets/hero-module.png) 
+
+## Signpost Module
+* Restore Wireframe CSS and add Foreground Fade Rule
+  ```css
+  body > main {
+    background-color: var(--foreground-fade);
+  }
+  ```
+* Setup Module Layout
+  ```html
+  <section class="signposts">
+      <header>
+          <h2>[Topics]</h2>
+      </header>
+      <main>
+          <article></article>
+          <article></article>
+          <article></article>
+      </main>
+  </section>
+  ```
+* Layout CSS for module
+  ```css
+  :root {
+    --signpost-height: calc(var(--hero-height)/2);
+  }
+
+  section.signposts {
+    flex: 1 0 auto;
+    display: grid;
+    grid-template-rows: var(--header-height) auto;
+    min-height: var(--signpost-height);
+  }
+  ```
+* Layout CSS for Signposts in module
+  ```css
+  section.signposts > main {
+    display: grid;
+    grid-gap: var(--large-padding);
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+  ```
+* Select Three signpost images and save the urls:
+  ![Unsplash url](assets/copy-unspash-address.png)  
+* Add markup for simple signpost:
+```html
+<article>
+  <header>
+    <h3>[Topic 2]</h3>
+  </header>
+  <main>
+    <p>[Text About Topic 2]</p>
+  </main>
+  <footer>
+    <p><a href="#">[Link to Topic 2]</a></p>
+  </footer>
+</article>
+```
+* Add styling to layout each signpost module consistently:
+```css
+section.signposts article,
+section.signposts article > a {
+  display: grid;
+  grid-template-rows: var(--header-height) auto var(--header-height);
+}
+
+section.signposts article > header {
+  grid-row: 1;
+}
+
+section.signposts article > main {
+  grid-row: 2;
+}
+
+section.signposts article > footer {
+  grid-row: 3;
+}
+```
+> Note: without the `grid-row` directives elements would just stack on top of each other.  This way `header` is always at top, `footer` is always at the bottom, `main` is in the middle. 
+* Style article text overlays:
+```css
+section.signposts article main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+section.signposts article header,
+section.signposts article footer,
+section.signposts article main p {
+  padding: var(--small-padding);
+  background-color: var(--background-fade);
+}
+```
+* Add `--bgImage` variable to signpost to the `article`:
+```html
+<article style="--bgimage:url('https://images.unsplash.com/photo-1665131974572-ea0ecee58cbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80')">
+```
+* Add global CSS helper rule:
+```css
+[style^="--bgimage"] {
+  background-image: var(--bgimage);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+```
+> Note: this _could_ be scoped to `section.signposts` but it's a generally helpful rule 
+* Setup a `header` and `footer` note signpost:
+  ```html
+  <article style="--bgimage:url('https://images.unsplash.com/photo-1656666271549-3c2046815f11?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80');">
+    <header>
+      <h3>[Topic 3]</h3>
+    </header>
+    <footer>
+      <p><a href="#">[Link to Topic 3]</a></p>
+    </footer>
+  </article>
+  ```
+* Setup a signpost to be fully clickable:
+  ```html
+  <article style="--bgimage:url('https://images.unsplash.com/photo-1667757699107-62841bd54178?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')">
+    <a href="#">
+      <header>
+        <h3>[Topic 1]</h3>
+      </header>
+      <main>
+        <p>[Text About Topic 1]</p>
+      </main>
+    </a>
+  </article>
+  ```
+* Clicable CSS Signpost:
+  ```css
+  :root {
+    --signpost-highlight-fade: rgba(255,255,255,0.5);
+  }
+
+  section.signposts article {
+    position: relative;
+  }
+
+  section.signposts article > a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  section.signposts article > a:hover {
+    background-color: var(--signpost-highlight-fade);
+  }
+
+  section.signposts article > a > header {
+    grid-row: 1;
+  }
+
+  section.signposts article > a > main {
+    grid-row: 2;
+  }
+
+  section.signposts article > a > footer {
+    grid-row: 3;
+  }
+  ```
+* [Final](./src/7.%20signpost.html):![Wireframe Final](./assets/homepage.png)

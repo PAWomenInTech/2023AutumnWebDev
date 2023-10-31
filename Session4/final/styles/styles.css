@@ -1,6 +1,7 @@
 :root {
   --min-width: 30rem;
   --hero-height: var(--min-width);
+  --signpost-height: calc(var(--min-width)/2);
   --header-height: 3rem;
   --large-padding: 1rem;
   --small-padding: calc(var(--large-padding) / 2);
@@ -148,6 +149,7 @@ section.signposts {
   flex: 1 0 auto;
   display: grid;
   grid-template-rows: var(--header-height) auto;
+  min-height: var(--signpost-height);
 }
 
 section.signposts > main {

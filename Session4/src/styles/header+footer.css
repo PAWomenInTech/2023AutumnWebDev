@@ -45,6 +45,18 @@ body>main {
   margin: 0 auto;
 }
 
+body>header {
+  grid-row: 1;
+}
+
+body>main {
+  grid-row: 2;
+}
+
+body>footer {
+  grid-row: 3;
+}
+
 /* Header and Footer --BEGIN */
 
 body>header,

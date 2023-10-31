@@ -1,4 +1,5 @@
-/* header,
+/*
+header,
 main,
 aside,
 footer,
@@ -18,7 +19,7 @@ article {
   --logo-button: rgba(200, 10, 10, 0.7);
   --background-fade: rgba(0, 0, 0, 0.3);
 
-  --foreground-fade: rgba(255,255,255,0.3);
+  --foreground-fade: rgba(255, 255, 255, 0.3);
   --accent-text: black;
   --button: gray;
 
@@ -27,6 +28,9 @@ article {
   --large-padding: 1rem;
   --small-padding: calc(var(--large-padding) / 2);
   --hero-height: var(--min-width);
+  
+  --signpost-height: calc(var(--hero-height)/2);
+  --signpost-highlight-fade: rgba(255,255,255,0.5);
 }
 
 * {
@@ -37,7 +41,7 @@ article {
 
 html,
 body {
-  height: 100vh;
+  height: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -59,6 +63,10 @@ body>main {
   max-width: 70%;
   width: 100%;
   margin: 0 auto;
+}
+
+body>main {
+  background-color: var(--foreground-fade);
 }
 
 body>header {
@@ -104,7 +112,7 @@ a:hover {
   text-decoration: underline;
 }
 
-body > header > a {
+body>header>a {
   background-color: var(--logo-button);
   height: calc(var(--header-height) / 2);
   padding: var(--large-padding);
@@ -118,8 +126,6 @@ body>footer {
   background-color: var(--background-fade);
 }
 
-/* Hero Module -Begin */
-
 section.hero {
   min-height: var(--hero-height);
   padding: var(--large-padding);
@@ -128,15 +134,14 @@ section.hero {
   justify-content: center;
   align-items: flex-end;
   color: var(--accent-text);
-  position:relative;
+  position: relative;
 }
 
-section.hero > * {
+section.hero>* {
   background-color: var(--foreground-fade);
   padding: var(--large-padding);
-  min-width: calc(
-    var(--min-width) - 4 * var(--large-padding)
-  ); /* 30rem - 2x( 1rem main padding + 1rem section padding )*/
+  min-width: calc(var(--min-width) - 4 * var(--large-padding));
+  /* 30rem - 2x( 1rem main padding + 1rem section padding )*/
 }
 
 section.hero footer {
@@ -154,7 +159,7 @@ section.hero footer a {
 section.hero::before {
   content: "";
   z-index: -1;
-  position:absolute;
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -167,4 +172,76 @@ section.hero::before {
 
 section.hero.full::before {
   position: fixed;
+}
+
+/* Signpost Module - Begin */
+
+[style^="--bgimage"] {
+  background-image: var(--bgimage);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+section.signposts {
+  flex: 1 0 auto;
+  display: grid;
+  grid-template-rows: var(--header-height) auto;
+  min-height: var(--signpost-height);
+}
+
+section.signposts>main{
+  display: grid;
+  grid-gap: var(--large-padding);
+  grid-template-columns: 1fr 1fr 2fr;
+}
+
+section.signposts article,
+section.signposts article>a {
+  display: grid;
+  grid-template-rows: var(--header-height) auto var(--header-height);
+}
+
+section.signposts article>header,
+section.signposts article>a>header {
+  grid-row: 1;
+}
+
+section.signposts article>main,
+section.signposts article>a>main {
+  grid-row: 2;
+}
+
+section.signposts article>footer,
+section.signposts article>a>footer {
+  grid-row: 3;
+}
+
+section.signposts article main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.signposts article header,
+section.signposts article footer,
+section.signposts article main p {
+  padding: var(--small-padding);
+  background-color: var(--background-fade);
+}
+
+section.signposts article {
+  position: relative;
+}
+
+section.signposts article > a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+section.signposts article > a:hover {
+  background-color: var(--signpost-highlight-fade);
 }
