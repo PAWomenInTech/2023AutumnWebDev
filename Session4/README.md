@@ -27,7 +27,7 @@ This session is a consolidation of the previous few weeks, with a push in into s
       <html lang="en">
       <head>
           <meta charset="UTF-8" />
-          <meta name="viewport"       content="width=device-width,       initial-scale=1.0" />
+          <meta name="viewport" content="width=device-width,initial-scale=1.0" />
           <title>[Page Name] - [Site Name]</title>
       </head>
       <body>
@@ -263,6 +263,8 @@ This session is a consolidation of the previous few weeks, with a push in into s
   </section>
   ```
   > Note: We're defining the background image in HTML rather than CSS so the styling can be resused across multiple pages using the same stylesheet.  It's generally a **bad practice** to use a `style` attribute.
+
+  > Note: You _could_ do something similar with an `<img>` tag, but semantically these images are purely decorative by using an `img` element we'd be implying that the image was meaningful to the content, rather than just a pretty background.
 * Style Hero Module:
   * Add new variables:
   ```css
@@ -505,3 +507,32 @@ section.signposts article main p {
   }
   ```
 * [Final](./src/7.%20signpost.html):![Wireframe Final](./assets/homepage.png)
+
+## Seperate Theme from Layout
+* Move all the colour variables to a new CSS `theme.css` File:
+  ```css
+  :root {
+    --text: white;
+    --background: blue;
+    --logo-button: rgba(200, 10, 10, 0.7);
+    --background-fade: rgba(0, 0, 0, 0.3);
+
+    --foreground-fade: rgba(255, 255, 255, 0.3);
+    --accent-text: black;
+    --button: gray;
+
+    --signpost-highlight-fade: rgba(255,255,255,0.5);
+  }
+  ```
+* Add a new link to the new CSS file before the usual `styles.css`
+* Duplicate the `theme.css` to a new file and update the colours.
+* Switch between the theme files to see the changes.
+* [Final](./src/8.%20seperate%20theme.html)
+
+## Additional Notes
+
+Useful Urls:
+* [Flat UI Colors](https://flatuicolors.com/)
+* [Unsplash](https://unsplash.com)
+* [Style Stage](https://stylestage.dev/)
+* [Code Pen Modules](https://codepen.io/collection/vBQEZQ)

@@ -1,0 +1,13 @@
+:root {
+  --text: white;
+  --background: blue;
+  --logo-button: rgba(200, 10, 10, 0.7);
+  --background-fade: rgba(0, 0, 0, 0.3);
+
+  --foreground-fade: rgba(255, 255, 255, 0.3);
+  --accent-text: black;
+  --button: gray;
+
+
+  --signpost-highlight-fade: rgba(255,255,255,0.5);
+}
