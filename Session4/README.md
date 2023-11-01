@@ -236,9 +236,9 @@ This session is a consolidation of the previous few weeks, with a push in into s
 * Style the Site Logo:
   ```css
   body > header > a {
-    background-color: var  (--logo-button);
-    height: calc(var  (--header-height) / 2);
-    padding: var  (--large-padding);
+    background-color: var(--logo-button);
+    height: calc(var(--header-height) / 2);
+    padding: var(--large-padding);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -249,13 +249,13 @@ This session is a consolidation of the previous few weeks, with a push in into s
   ```css
   body>header,
   body>footer {
-    background-color: var  (--background-fade);
+    background-color: var(--background-fade);
   }
   ```
 * [Final](./src/5.%20theme.html):![Wireframe Final](./assets/wireframe-theme.png) 
 
 ## Hero Module
-* Find an appropriate image from [unsplash](https://unsplash.com/).  Download to `./images` and rename to `splash-background.jpg` (`jpg`` may be different depending on the image!).
+* Find an appropriate image from [unsplash](https://unsplash.com/).  Download to `./images` and rename to `splash-background.jpg` (`jpg`` imagesmay be different depending on the image!).
 * Add the Hero Module signpost markup (replacing the first `<section>`):
   ```html
   <section class="hero" style="--hero-splash-image: url('../images/splash-background.jpg')">
