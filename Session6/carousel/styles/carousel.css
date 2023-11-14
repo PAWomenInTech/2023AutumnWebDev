@@ -3,11 +3,6 @@
   --carousel-image-width: 100%;
 }
 
-body {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
 section.carousel>main {
   display: flex;
   scroll-snap-type: x mandatory;
