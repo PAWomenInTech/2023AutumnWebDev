@@ -3,11 +3,12 @@
 
  This works as events "bubble" up through the DOM tree until it's handled.
  */
- document
+document
     .querySelector("section.carousel > footer")
     .addEventListener("click", (event) => {
+        const hash = event.target.getAttribute("href");
         // use the href attribute on the clicked element and see if there's a slide with the matching id
-        const $slide = document.querySelector(event.target.getAttribute("href"));
+        const $slide = document.querySelector(hash);
         // if there's no slide element found, don't do anything.  The element isn't a properly setup carousel link
         if (!$slide) return;
 
@@ -20,13 +21,17 @@
             $slide.scrollIntoViewIfNeeded();
             // diagnostic log message
             console.log('Scrolling into View if Needed');
-          } else if ($slide.scrollIntoView) { // if the best method isn't available, look for the second best `scrollIntoView` method
+            history.replaceState(undefined, undefined, hash);
+            return;
+        } else if ($slide.scrollIntoView) { // if the best method isn't available, look for the second best `scrollIntoView` method
             // if the method is available, prevent the event from bubbling up further
             event.preventDefault();
             // call the scroll method to mimimise any vertical scrolling by making sure the bottom of the slide only is visible
             $slide.scrollIntoView({ block: "end", inline: "nearest" });
             console.log('Scrolling into View');
-          }
-          // if we get here, the user has clicked a correctly configured link but the browser doesn't support any of the more advanced scroll methods so we have to fallback to normal behaviour
-          console.log('Browser is handling click normally');
+            history.replaceState(undefined, undefined, hash);
+            return;
+        }
+        // if we get here, the user has clicked a correctly configured link but the browser doesn't support any of the more advanced scroll methods so we have to fallback to normal behaviour
+        console.log('Browser is handling click normally');
     });
